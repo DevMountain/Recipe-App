@@ -47,7 +47,6 @@ static CGFloat margin = 15;
     
     CGFloat top = topMargin + heightForReference + margin * 2;
     
-    
     for (int i = 0; i < [RARecipes ingredientCountAtIndex:self.recipeIndex]; i++) {
         
         UILabel *volume = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, (self.view.frame.size.width - 2 * margin) / 4, 20)];
@@ -63,6 +62,27 @@ static CGFloat margin = 15;
         
         top += (20 + margin);
         
+    }
+    
+    top += margin;
+    
+    for (int i = 0; i < [[RARecipes directionsAtIndex:self.recipeIndex] count]; i++) {
+
+        CGFloat height = [self heightForDescription:[RARecipes directionsAtIndex:self.recipeIndex][i]];
+        
+        UILabel *count = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, 30, 20)];
+        count.font = [UIFont boldSystemFontOfSize:17];
+        count.text = [NSString stringWithFormat:@"%d", i + 1];
+        [scrollView addSubview:count];
+        
+        UILabel *direction = [[UILabel alloc] initWithFrame:CGRectMake(margin + 30, top, (self.view.frame.size.width - 2 * margin - 40), height)];
+        direction.numberOfLines = 0;
+        direction.text = [RARecipes directionsAtIndex:self.recipeIndex][i];
+
+        [scrollView addSubview:direction];
+
+        top += (height + margin);
+
     }
     
     // We set the content size of the scrollview after we've added all the labels so that we know how tall the size needs to be.
