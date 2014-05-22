@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711A4E75192EACB2005642EF /* RARecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A4E74192EACB2005642EF /* RARecipeDetailViewController.m */; };
 		71808A7C192DD2AE00435D1E /* RARecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 71808A7B192DD2AE00435D1E /* RARecipes.m */; };
 		71F67B51192C8D6A00E609F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B50192C8D6A00E609F1 /* Foundation.framework */; };
 		71F67B53192C8D6A00E609F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B52192C8D6A00E609F1 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		711A4E73192EACB2005642EF /* RARecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipeDetailViewController.h; sourceTree = "<group>"; };
+		711A4E74192EACB2005642EF /* RARecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipeDetailViewController.m; sourceTree = "<group>"; };
 		71808A7A192DD2AE00435D1E /* RARecipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipes.h; sourceTree = "<group>"; };
 		71808A7B192DD2AE00435D1E /* RARecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipes.m; sourceTree = "<group>"; };
 		71F67B4D192C8D6A00E609F1 /* Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,8 @@
 				71F67B80192C9BFA00E609F1 /* RARecipeViewController.m */,
 				71F67B82192C9C1300E609F1 /* RARecipeTableViewDatasource.h */,
 				71F67B83192C9C1300E609F1 /* RARecipeTableViewDatasource.m */,
+				711A4E73192EACB2005642EF /* RARecipeDetailViewController.h */,
+				711A4E74192EACB2005642EF /* RARecipeDetailViewController.m */,
 				71808A7A192DD2AE00435D1E /* RARecipes.h */,
 				71808A7B192DD2AE00435D1E /* RARecipes.m */,
 				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
@@ -259,6 +264,7 @@
 				71F67B84192C9C1300E609F1 /* RARecipeTableViewDatasource.m in Sources */,
 				71808A7C192DD2AE00435D1E /* RARecipes.m in Sources */,
 				71F67B81192C9BFA00E609F1 /* RARecipeViewController.m in Sources */,
+				711A4E75192EACB2005642EF /* RARecipeDetailViewController.m in Sources */,
 				71F67B61192C8D6A00E609F1 /* RAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

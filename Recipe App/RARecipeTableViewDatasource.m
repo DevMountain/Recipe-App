@@ -30,13 +30,17 @@ static NSString * const cellIdentifier = @"identifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.textLabel.text = [RARecipes titleAtIndex:indexPath.row];
-
+    
     return cell;
 
 }
 
 - (CGFloat)heightForIndexPath:(NSIndexPath *)indexPath {
     return 44;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Recipe.com";
 }
 
 @end

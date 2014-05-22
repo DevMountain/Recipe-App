@@ -10,6 +10,10 @@
 
 #import "RARecipeTableViewDatasource.h"
 
+#import "RARecipes.h"
+
+#import "RARecipeDetailViewController.h"
+
 @interface RARecipeViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -61,8 +65,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    NSLog(@"%@",[RARecipes titleAtIndex:indexPath.row]);
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    RARecipeDetailViewController *viewController = [RARecipeDetailViewController new];
+    viewController.recipeIndex = indexPath.row;
+    [self.navigationController pushViewController:viewController animated:YES];
     
 }
 
