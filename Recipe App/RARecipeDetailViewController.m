@@ -31,6 +31,7 @@ static CGFloat margin = 15;
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = [RARecipes titleAtIndex:self.recipeIndex];
 
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
