@@ -38,21 +38,37 @@ static CGFloat margin = 15;
 
     CGFloat topMargin = 20;
 
-    CGFloat heightForReference = [self heightForDescription:[RARecipes descriptionAtIndex:self.recipeIndex]];
+    // We need to calculate the height of the description because it's going to cover more than one line.
+    
+    CGFloat heightForDescription = [self heightForDescription:[RARecipes descriptionAtIndex:self.recipeIndex]];
 
-    UILabel *description = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, self.view.frame.size.width - 2 * margin, heightForReference)];
+    UILabel *description = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, self.view.frame.size.width - 2 * margin, heightForDescription)];
     description.text = [RARecipes descriptionAtIndex:self.recipeIndex];
+
+    // By setting numberOfLines = 0 it will let us have as many lines as we need.
     description.numberOfLines = 0;
     [scrollView addSubview:description];
     
-    CGFloat top = topMargin + heightForReference + margin * 2;
+    // We'll shift the top margin with every label we add to the scrollview
+    CGFloat top = topMargin + heightForDescription + margin * 2;
+    
+    UILabel *ingredientsTitle = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, self.view.frame.size.width - 2 * margin, 20)];
+    ingredientsTitle.text = @"Ingredients";
+    ingredientsTitle.font = [UIFont boldSystemFontOfSize:17];
+    [scrollView addSubview:ingredientsTitle];
+    
+    top += 20 + margin;
     
     for (int i = 0; i < [RARecipes ingredientCountAtIndex:self.recipeIndex]; i++) {
+        
+        // I set the width of the volume to 1/4 of the screen (less margins). You can set it to whatever width you want. The best thing to do would be to find the maximum width of all ingredient volumes.
         
         UILabel *volume = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, (self.view.frame.size.width - 2 * margin) / 4, 20)];
         volume.font = [UIFont boldSystemFontOfSize:17];
         volume.text = [RARecipes ingredientVolumeAtIndex:i inRecipeAtIndex:self.recipeIndex];
         [scrollView addSubview:volume];
+        
+        // The width of the type is just the remaining space. It's possible that this get's trunkated, because I'm not wrapping text here.
         
         UILabel *type = [[UILabel alloc] initWithFrame:CGRectMake(margin + (self.view.frame.size.width - 2 * margin) / 4, top, (self.view.frame.size.width - 2 * margin) * 3 / 4, 20)];
         type.numberOfLines = 0;
@@ -65,6 +81,14 @@ static CGFloat margin = 15;
     }
     
     top += margin;
+    
+    UILabel *directionsTitle = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, self.view.frame.size.width - 2 * margin, 20)];
+    directionsTitle.text = @"Directions";
+    directionsTitle.font = [UIFont boldSystemFontOfSize:17];
+    [scrollView addSubview:directionsTitle];
+    
+    top += 20 + margin;
+
     
     for (int i = 0; i < [[RARecipes directionsAtIndex:self.recipeIndex] count]; i++) {
 
