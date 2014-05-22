@@ -8,6 +8,8 @@
 
 #import "RARecipeTableViewDatasource.h"
 
+#import "RARecipes.h"
+
 static NSString * const cellIdentifier = @"identifier";
 
 @implementation RARecipeTableViewDatasource
@@ -20,13 +22,17 @@ static NSString * const cellIdentifier = @"identifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 25;
+    return [RARecipes count];
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell.textLabel.text = [RARecipes titleAtIndex:indexPath.row];
+
+    return cell;
+
 }
 
 @end

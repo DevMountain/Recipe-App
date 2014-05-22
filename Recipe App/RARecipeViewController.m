@@ -32,6 +32,8 @@
 {
     [super viewDidLoad];
 
+    self.title = @"All-Time Best Recipes";
+    
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:tableView];
     
