@@ -12,4 +12,6 @@
 
 - (void)registerTableView:(UITableView *)tableView;
 
+- (CGFloat)heightForIndexPath:(NSIndexPath *)indexPath;
+
 @end

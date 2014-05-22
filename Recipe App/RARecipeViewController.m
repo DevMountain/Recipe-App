@@ -10,7 +10,7 @@
 
 #import "RARecipeTableViewDatasource.h"
 
-@interface RARecipeViewController ()
+@interface RARecipeViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) RARecipeTableViewDatasource *dataSource; // Must be strong to stay in memory
@@ -35,6 +35,7 @@
     self.title = @"All-Time Best Recipes";
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.delegate = self;
     [self.view addSubview:tableView];
     
     
@@ -53,15 +54,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return [self.dataSource heightForIndexPath:indexPath];
+
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 @end

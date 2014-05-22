@@ -35,4 +35,8 @@ static NSString * const cellIdentifier = @"identifier";
 
 }
 
+- (CGFloat)heightForIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
 @end
