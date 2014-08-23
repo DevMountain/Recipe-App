@@ -37,18 +37,15 @@
     [super viewDidLoad];
 
     self.title = @"All-Time Best Recipes";
+
+    self.dataSource = [RARecipeTableViewDatasource new];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.delegate = self;
-    [self.view addSubview:tableView];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
     
-    
-    RARecipeTableViewDatasource *dataSource = [RARecipeTableViewDatasource new];
-    [dataSource registerTableView:tableView];
-    self.dataSource = dataSource;
-    
-    tableView.dataSource = dataSource;
-    self.tableView = tableView;
+    [self.dataSource registerTableView:self.tableView];
+    self.tableView.dataSource = self.dataSource;
 
 }
 
