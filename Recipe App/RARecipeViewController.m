@@ -63,8 +63,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"%@",[RARecipes titleAtIndex:indexPath.row]);
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RARecipeDetailViewController *viewController = [RARecipeDetailViewController new];

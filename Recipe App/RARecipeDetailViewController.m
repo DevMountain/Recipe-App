@@ -69,7 +69,7 @@ static CGFloat margin = 15;
         volume.text = [RARecipes ingredientVolumeAtIndex:i inRecipeAtIndex:self.recipeIndex];
         [scrollView addSubview:volume];
         
-        // The width of the type is just the remaining space. It's possible that this get's trunkated, because I'm not wrapping text here.
+        // The width of the type is just the remaining space. It's possible that this get's truncated, because I'm not wrapping text here.
         
         UILabel *type = [[UILabel alloc] initWithFrame:CGRectMake(margin + (self.view.frame.size.width - 2 * margin) / 4, top, (self.view.frame.size.width - 2 * margin) * 3 / 4, 20)];
         type.numberOfLines = 0;
@@ -77,6 +77,8 @@ static CGFloat margin = 15;
         type.text = [RARecipes ingredientTypeAtIndex:i inRecipeAtIndex:self.recipeIndex];
         [scrollView addSubview:type];
         
+        // Volume and type are on the same line, so we only update the top margin after they are added to the scrollview
+
         top += (20 + margin);
         
     }
@@ -93,7 +95,7 @@ static CGFloat margin = 15;
     
     for (int i = 0; i < [[RARecipes directionsAtIndex:self.recipeIndex] count]; i++) {
 
-        CGFloat height = [self heightForDescription:[RARecipes directionsAtIndex:self.recipeIndex][i]];
+        CGFloat height = [self heightForDirections:[RARecipes directionsAtIndex:self.recipeIndex][i]];
         
         UILabel *count = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, 30, 20)];
         count.font = [UIFont boldSystemFontOfSize:17];
@@ -128,6 +130,17 @@ static CGFloat margin = 15;
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
                                               context:nil];
+    
+    return bounding.size.height;
+    
+}
+
+- (CGFloat)heightForDirections:(NSString *)description {
+    
+    CGRect bounding = [description boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 2 * margin - 40, CGFLOAT_MAX)
+                                                options:NSStringDrawingUsesLineFragmentOrigin
+                                             attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
+                                                context:nil];
     
     return bounding.size.height;
     
