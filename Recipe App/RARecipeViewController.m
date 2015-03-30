@@ -7,13 +7,14 @@
 //
 
 #import "RARecipeViewController.h"
+#import "RARecipes.h"
 
-#import "RARecipeTableViewDatasource.h"
+static NSString * const cellIdentifier = @"cellID";
 
-@interface RARecipeViewController ()
+
+@interface RARecipeViewController () <UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) RARecipeTableViewDatasource *dataSource; // Must be strong to stay in memory
 
 @end
 
@@ -34,14 +35,31 @@
 
     self.title = @"All-Time Best Recipes";
     
-    self.dataSource = [RARecipeTableViewDatasource new];
-    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     
-    [self.dataSource registerTableView:self.tableView];
-    self.tableView.dataSource = self.dataSource;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    
+    self.tableView.dataSource = self;
 
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [RARecipes count];
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    // NOTE: If you don't register the cell class to the tableview then you'll need to check for a nil cell right here, so that you can initialize it.
+    
+    cell.textLabel.text = [RARecipes titleAtIndex:indexPath.row];
+    
+    return cell;
+    
 }
 
 - (void)didReceiveMemoryWarning
