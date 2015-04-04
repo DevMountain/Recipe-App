@@ -48,10 +48,10 @@ Setting up the DetailViewController is your opportunity to incorporate a lot of 
 This can be overwhelming and difficult. Enjoy the learning process. Ask your mentor for help.
 
 ### Step 7: Updating Your DetailViewController With the Correct Recipe
+
 We need to pass the indexPath.row of the selected cell to the DetailViewController's index property that we created so that the DetailViewController knows what recipe to display
 
 - In your didSelectRowAtIndexPath: method in your RecipeViewController, set the public index property of the DetailViewController to the indexPath.row of the selected cell
-- 
 
 ### Black Diamonds
 - Add the description of each recipe in small text on the main view
