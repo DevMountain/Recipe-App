@@ -26,6 +26,9 @@ An iOS app that displays some favorite recipes from Recipe.com
 - In numberOfRows return RARecipes class method count
 - in cellForRowAtIndexPath return a cell with the textLabel.text set to the string RARecipes class titleAtIndex for indexPath.row
 
+### Black Diamond
+ - Add the description of each recipe in small text on the main view
+
 ## Lesson 4: TableView Delegate
 
 ### Step 5: Setting Up the Delegate
@@ -54,6 +57,5 @@ We need to pass the indexPath.row of the selected cell to the DetailViewControll
 - In your didSelectRowAtIndexPath: method in your RecipeViewController, set the public index property of the DetailViewController to the indexPath.row of the selected cell
 
 ### Black Diamonds
-- Add the description of each recipe in small text on the main view
 - Stylize the detail view. Fonts, layout, color.
 - Can you add an imageview to the top of the recipe detail view?
