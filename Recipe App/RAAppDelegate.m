@@ -16,16 +16,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-
+    
+    //Set up ViewController and Navigation Controller.
     RARecipeViewController *viewController = [RARecipeViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
+    //Add Navigation controller as rootview Controller
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     return YES;
     
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

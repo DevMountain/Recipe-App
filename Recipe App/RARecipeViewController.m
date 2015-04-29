@@ -31,18 +31,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.title = @"All-Time Best Recipes";
     
+    //Initalizes a new data source.
     self.dataSource = [RARecipeTableViewDatasource new];
     
+    //Set tableViews frame as the bounds with Grouped Style
+    //Add the tableView as a subview of the view.
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     
+    //Set the dataSource to the correct tableView
+    //Set the tableViews dataSource to the RARecipe Datasource property
     [self.dataSource registerTableView:self.tableView];
     self.tableView.dataSource = self.dataSource;
-
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {

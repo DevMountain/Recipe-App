@@ -17,34 +17,42 @@ static NSString * const DirectionsKey = @"directions";
 
 @implementation RARecipes
 
+//returns the amount of recipes
 + (NSInteger)count {
     return [[self recipes] count];
 }
 
+//Gets the specific recipe for the index
 + (NSDictionary *)recipeAtIndex:(NSInteger)index {
     return [self recipes][index];
 }
 
+//Gets the title at the index
 + (NSString *)titleAtIndex:(NSInteger)index {
     return [self recipes][index][RecipeTitleKey];
 }
 
+//Gets the description for the recipe at the index
 + (NSString *)descriptionAtIndex:(NSInteger)index {
     return [self recipes][index][RecipeDescriptionKey];
 }
 
+//Gets the amount of ingredients for recipe at the index
 + (NSInteger)ingredientCountAtIndex:(NSInteger)index {
     return [[self recipes][index][RecipeIngredientsKey] count];
 }
 
+//Gets the type of ingredient at the index
 + (NSString *)ingredientTypeAtIndex:(NSInteger)ingIndex inRecipeAtIndex:(NSInteger)recIndex {
     return [self recipes][recIndex][RecipeIngredientsKey][ingIndex][IngredientTypeKey];
 }
 
+//Gets the volume of the ingredient
 + (NSString *)ingredientVolumeAtIndex:(NSInteger)ingIndex inRecipeAtIndex:(NSInteger)recIndex {
     return [self recipes][recIndex][RecipeIngredientsKey][ingIndex][IngredientVolumeKey];
 }
 
+//Gets the directions for the recipe at the index.
 + (NSArray *)directionsAtIndex:(NSInteger)index {
     return [self recipes][index][DirectionsKey];
 }

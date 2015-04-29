@@ -10,6 +10,9 @@
 
 @interface RARecipes : NSObject
 
+//Makes the methods public allowing you to access them in a different class.
+
+
 + (NSInteger)count;
 + (NSDictionary *)recipeAtIndex:(NSInteger)index;
 + (NSString *)titleAtIndex:(NSInteger)index;
