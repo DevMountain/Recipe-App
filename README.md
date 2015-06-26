@@ -19,9 +19,17 @@ An iOS app that displays some favorite recipes from Recipe.com
 - Create a new subclass of NSObject called RARecipes in your app. 
 - Copy the code from this Gist: https://gist.github.com/jkhowland/5e7c356c73f617bcfdd0
 
-### Step 4: Create a new tableViewDatasource
+### Choose internal or external datasource and follow the applicable Step 4
+
+### Step 4 (External Datasource): Create a new tableViewDatasource
 - Create a NSObject subclass called RecipesTableViewDataSource
 - In the header file, adopt the UITableViewDataSource protocol 
+- Add the required UITableViewDataSource methods to the implementation file
+- In numberOfRows return RARecipes class method count
+- in cellForRowAtIndexPath return a cell with the textLabel.text set to the string RARecipes class titleAtIndex for indexPath.row
+
+### Step 4 (Internal Datasource): Implement the tableViewDatasource
+- In the viewController, adopt the UITableViewdataSource protocol
 - Add the required UITableViewDataSource methods to the implementation file
 - In numberOfRows return RARecipes class method count
 - in cellForRowAtIndexPath return a cell with the textLabel.text set to the string RARecipes class titleAtIndex for indexPath.row
