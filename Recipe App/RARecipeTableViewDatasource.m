@@ -16,7 +16,7 @@ static NSString * const cellIdentifier = @"identifier";
 
 - (void)registerTableView:(UITableView *)tableView {
     
-    // NOTE: You have 2 options. You can either register the tableview to use automatic initializatino of a cell. Or you can check for a nil cell.
+    // NOTE: You have 2 options. You can either register the tableview to use automatic initialization of a cell. Or you can check for a nil cell.
     
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
     
